@@ -345,7 +345,7 @@ router.get("/github/:username", (req, res) => {
 
 			if (response.statusCode !== 200) {
 				return res.status(404).json({ msg: "No Github profile found" });
-				// Return useda s more than one res in single route
+				// Return used as more than one res in single route
 			}
 
 			res.json(JSON.parse(body));
