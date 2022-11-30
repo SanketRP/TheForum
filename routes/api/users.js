@@ -8,7 +8,6 @@ const { check, validationResult } = require("express-validator");
 
 // User model
 const User = require("../../models/User");
-const bcryptjs = require("bcryptjs");
 
 // @route   POST api/users
 // @desc    Register user
