@@ -20,7 +20,7 @@ function Login() {
 	return (
 		<section className='container'>
 			{/* <div className='alert alert-danger'>Invalid credentials</div> */}
-			<h1 className='large text-primary'>Sign In</h1>
+			<h1 className='large text-heading'>Sign In</h1>
 			<p className='lead'>
 				<i className='fas fa-user'></i> Sign into Your Account
 			</p>
@@ -46,12 +46,15 @@ function Login() {
 				</div>
 				<input
 					type='submit'
-					className='btn btn-primary'
+					className='btn btn-heading'
 					value='Login'
 				/>
 			</form>
 			<p className='my-1'>
-				Don't have an account? <Link to='/register'>Sign Up</Link>
+				Don't have an account?{" "}
+				<Link className='text-heading' to='/register'>
+					Sign Up
+				</Link>
 			</p>
 		</section>
 	);

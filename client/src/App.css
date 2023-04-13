@@ -1,6 +1,7 @@
 /* Global Styles */
 :root {
 	--primary-color: #17a2b8;
+	--heading-color: #671488;
 	--dark-color: #343a40;
 	--light-color: #f4f4f4;
 	--danger-color: #dc3545;
@@ -74,6 +75,10 @@ img {
 	color: var(--dark-color);
 }
 
+.text-heading {
+	color: var(--heading-color);
+}
+
 /* Padding */
 .p {
 	padding: 0.5rem;
@@ -137,6 +142,7 @@ img {
 	margin-right: 0.5rem;
 	transition: opacity 0.2s ease-in;
 	outline: none;
+	border-radius: 7%;
 }
 
 .badge {
@@ -161,6 +167,14 @@ img {
 .badge-primary,
 .alert-primary {
 	background: var(--primary-color);
+	color: #fff;
+}
+
+.btn-heading,
+.bg-heading,
+.badge-heading,
+.alert-heading {
+	background: var(--heading-color);
 	color: #fff;
 }
 
@@ -308,7 +322,7 @@ button {
 	z-index: 1;
 	width: 100%;
 	top: 0;
-	border-bottom: solid 1px var(--primary-color);
+	border-bottom: solid 1px var(--light-color);
 	opacity: 0.9;
 }
 
@@ -322,8 +336,24 @@ button {
 	margin: 0 0.25rem;
 }
 
+.navbar a.login {
+	color: #fff;
+}
+
+.navbar a.logout {
+	color: #fff;
+}
+
 .navbar a:hover {
 	color: var(--primary-color);
+}
+
+.navbar a.login:hover {
+	color: var(--success-color);
+}
+
+.navbar a.logout:hover {
+	color: var(--danger-color);
 }
 
 .navbar .welcome span {
@@ -390,7 +420,7 @@ button {
 }
 
 .profile-top .icons a:hover {
-	color: var(--dark-color);
+	color: #000;
 }
 
 .profile-about {
@@ -574,4 +604,11 @@ button {
 	.post button {
 		padding: 0.3rem 0.4rem;
 	}
+}
+
+.alert-wrapper {
+	position: fixed;
+	top: 4rem;
+	right: 2rem;
+	display: inline-block;
 }

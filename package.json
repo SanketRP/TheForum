@@ -12,6 +12,7 @@
 	"author": "Sanket Pagadpalliwar",
 	"license": "MIT",
 	"dependencies": {
+		"axios": "^1.3.4",
 		"bcryptjs": "^2.4.3",
 		"config": "^3.3.7",
 		"dotenv": "^16.0.0",

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
+import PropTypes from "prop-types";
 
-const Register = () => {
+const Register = ({ setAlert, register }) => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -13,44 +16,22 @@ const Register = () => {
 	const { name, email, password, password2 } = formData;
 
 	const onChange = (e) =>
+		// e.target.name refers to the name attribute in the input tag
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		if (password !== password2) {
-			console.log("Paasswords do not match");
+			setAlert("Passwords do not match", "danger");
 		} else {
-			// const newUser = {
-			// 	name,
-			// 	email,
-			// 	password,
-			// };
-
-			// try {
-			// 	const config = {
-			// 		headers: {
-			// 			"Content-Type": "application/json",
-			// 		},
-			// 	};
-
-			// 	const body = JSON.stringify(newUser);
-
-			// 	const res = await axios.post("/api/users", body, config);
-			// 	console.log(res.data);
-			// } catch (err) {
-			// 	console.error(err.response.data);
-			// }
-
-			// All the above stuff would be done via REDUX
-
-			console.log("SUCCESS");
+			register({ name, email, password });
 		}
 	};
 
 	return (
 		// Fragment not used because already in section tag. Fragment is like psuedo div.
 		<section className='container'>
-			<h1 className='large text-primary'>Sign Up</h1>
+			<h1 className='large text-heading'>Sign Up</h1>
 			<p className='lead'>
 				<i className='fas fa-user'></i> Create Your Account
 			</p>
@@ -62,7 +43,7 @@ const Register = () => {
 						name='name'
 						value={name}
 						onChange={(e) => onChange(e)}
-						required
+						// required
 					/>
 				</div>
 				<div className='form-group'>
@@ -72,7 +53,7 @@ const Register = () => {
 						name='email'
 						value={email}
 						onChange={(e) => onChange(e)}
-						required
+						// required
 					/>
 					<small className='form-text'>
 						This site uses Gravatar so if you want a profile image,
@@ -84,9 +65,10 @@ const Register = () => {
 						type='password'
 						placeholder='Password'
 						name='password'
+						// minLength={6}
+						autoComplete='on'
 						value={password}
 						onChange={(e) => onChange(e)}
-						minLength='6'
 					/>
 				</div>
 				<div className='form-group'>
@@ -94,22 +76,31 @@ const Register = () => {
 						type='password'
 						placeholder='Confirm Password'
 						name='password2'
+						// minLength={6}
+						autoComplete='on'
 						value={password2}
 						onChange={(e) => onChange(e)}
-						minLength='6'
 					/>
 				</div>
 				<input
 					type='submit'
-					className='btn btn-primary'
+					className='btn btn-heading'
 					value='Register'
 				/>
 			</form>
 			<p className='my-1'>
-				Already have an account? <Link to='/login'>Sign In</Link>
+				Already have an account?
+				<Link className='text-heading' to='/login'>
+					Sign In
+				</Link>
 			</p>
 		</section>
 	);
 };
 
-export default Register;
+Register.propTypes = {
+	setAlert: PropTypes.func.isRequired,
+	register: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert, register })(Register);
