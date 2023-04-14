@@ -6,6 +6,8 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
+import CreateProfile from "./components/profile-forms/CreateProfile";
+import NotFound from "./components/layout/NotFound";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import "./App.css";
 // Redux
@@ -37,6 +39,11 @@ const App = () => {
 						path='dashboard'
 						element={<PrivateRoute component={Dashboard} />}
 					/>
+					<Route
+						path='create-profile'
+						element={<PrivateRoute component={CreateProfile} />}
+					/>
+					<Route path='/*' element={<NotFound />} />
 				</Routes>
 			</Router>
 		</Provider>
