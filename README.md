@@ -1,4 +1,4 @@
-# DevConnector<br/>
+# The Forum<br/>
 <h1 align="center">Hi 👋, I'm Sanket Pagadpalliwar</h1><br/>
 <h3 align="center">A passionate frontend developer from India</h3><br/>
 
