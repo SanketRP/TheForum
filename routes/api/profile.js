@@ -4,7 +4,6 @@ const config = require("config");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
-// const normalize = require("normailze-url");
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
