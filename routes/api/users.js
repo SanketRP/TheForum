@@ -3,7 +3,7 @@ const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const config = require("config");
+require("dotenv").config();
 const { check, validationResult } = require("express-validator");
 
 // User model
@@ -72,7 +72,7 @@ router.post(
 
 			jwt.sign(
 				payload,
-				config.get("jwtSecret"),
+				process.env.jwtSecret,
 				{ expiresIn: 86400 }, // In production change it an hour i.e 3600 secs
 				(err, token) => {
 					if (err) throw err;
